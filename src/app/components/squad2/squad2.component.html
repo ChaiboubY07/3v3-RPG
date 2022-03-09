@@ -1,0 +1,35 @@
+<div class="container-fluid">
+    <div class="row h-100">
+
+        <div class="sidebar col-3 p-3 text-center">
+            <h1>Races</h1>
+            <ul>
+                <li *ngFor="let race of races" (click)="changeRace(race)" [class.active]="character.race === race" class="mb-3 py-2">
+                    {{race}}
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-6 text-center text-white p-3">
+            <h2>SQUAD 2</h2>
+            <h2>Race</h2>
+            <p>{{character.race}}</p>
+            <h2>Weapon</h2>
+            <p>{{character.weapon}}</p>
+            <h2>Name</h2>
+            <input type="text" placeholder="Name" class="mb-5 px-2" [(ngModel)]="character.name" (input)="changeName()">
+            <button routerLink="/fight" class="btn continue-button px-5 py-2 mx-auto" [class.disabled]="!characterComplete" (click)="createCharacter()">Next</button>
+            <p>{{character.player}}</p>
+        </div>
+
+        <div class="sidebar col-3 p-3 text-center">
+            <h1>Weapons</h1>
+            <ul>
+                <li *ngFor="let weapon of weapons" (click)="changeWeapon(weapon)" [class.active]="character.weapon === weapon" class="mb-3 py-2">
+                    {{weapon}}
+                </li>
+            </ul>
+        </div>
+            
+    </div>
+</div>
